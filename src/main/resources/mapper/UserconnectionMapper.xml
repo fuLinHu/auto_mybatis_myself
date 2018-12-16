@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.framk.autocode.dao.UserconnectionMapper" >
+    <resultMap id="BaseResultMap" type="com.framk.autocode.entity.Userconnection" >
+        <id column="userId" property="userId" jdbcType="VARCHAR" />
+        <id column="providerId" property="providerId" jdbcType="VARCHAR" />
+        <id column="providerUserId" property="providerUserId" jdbcType="VARCHAR" />
+        <result column="rank" property="rank" jdbcType="INTEGER" />
+        <result column="displayName" property="displayName" jdbcType="VARCHAR" />
+        <result column="profileUrl" property="profileUrl" jdbcType="VARCHAR" />
+        <result column="imageUrl" property="imageUrl" jdbcType="VARCHAR" />
+        <result column="accessToken" property="accessToken" jdbcType="VARCHAR" />
+        <result column="secret" property="secret" jdbcType="VARCHAR" />
+        <result column="refreshToken" property="refreshToken" jdbcType="VARCHAR" />
+        <result column="expireTime" property="expireTime" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+       ,name,id,name,test_age,test_birthday_try,userId,providerId,providerUserId,rank,displayName,profileUrl,imageUrl,accessToken,secret,refreshToken,expireTime
+    </sql>
+    <sql id="table">
+        userconnection
+    </sql>
+    <sql id="condition_item">
+         <if test="item.userId != null" >
+            userId=#'{item.userId,jdbcType=VARCHAR'}
+         </if>
+         <if test="item.providerId != null" >
+            providerId=#'{item.providerId,jdbcType=VARCHAR'}
+         </if>
+         <if test="item.providerUserId != null" >
+            providerUserId=#'{item.providerUserId,jdbcType=VARCHAR'}
+         </if>
+         <if test="item.rank != null" >
+            rank=#'{item.rank,jdbcType=INTEGER'}
+         </if>
+         <if test="item.displayName != null" >
+            displayName=#'{item.displayName,jdbcType=VARCHAR'}
+         </if>
+         <if test="item.profileUrl != null" >
+            profileUrl=#'{item.profileUrl,jdbcType=VARCHAR'}
+         </if>
+         <if test="item.imageUrl != null" >
+            imageUrl=#'{item.imageUrl,jdbcType=VARCHAR'}
+         </if>
+         <if test="item.accessToken != null" >
+            accessToken=#'{item.accessToken,jdbcType=VARCHAR'}
+         </if>
+         <if test="item.secret != null" >
+            secret=#'{item.secret,jdbcType=VARCHAR'}
+         </if>
+         <if test="item.refreshToken != null" >
+            refreshToken=#'{item.refreshToken,jdbcType=VARCHAR'}
+         </if>
+         <if test="item.expireTime != null" >
+            expireTime=#'{item.expireTime,jdbcType=INTEGER'}
+         </if>
+    </sql>
+    <sql id="condition">
+         <if test="userId != null" >
+            userId=#'{userId,jdbcType=VARCHAR'}
+         </if>
+         <if test="providerId != null" >
+            providerId=#'{providerId,jdbcType=VARCHAR'}
+         </if>
+         <if test="providerUserId != null" >
+            providerUserId=#'{providerUserId,jdbcType=VARCHAR'}
+         </if>
+         <if test="rank != null" >
+            rank=#'{rank,jdbcType=INTEGER'}
+         </if>
+         <if test="displayName != null" >
+            displayName=#'{displayName,jdbcType=VARCHAR'}
+         </if>
+         <if test="profileUrl != null" >
+            profileUrl=#'{profileUrl,jdbcType=VARCHAR'}
+         </if>
+         <if test="imageUrl != null" >
+            imageUrl=#'{imageUrl,jdbcType=VARCHAR'}
+         </if>
+         <if test="accessToken != null" >
+            accessToken=#'{accessToken,jdbcType=VARCHAR'}
+         </if>
+         <if test="secret != null" >
+            secret=#'{secret,jdbcType=VARCHAR'}
+         </if>
+         <if test="refreshToken != null" >
+            refreshToken=#'{refreshToken,jdbcType=VARCHAR'}
+         </if>
+         <if test="expireTime != null" >
+            expireTime=#'{expireTime,jdbcType=INTEGER'}
+         </if>
+    </sql>
+
+    <sql id="keyId">
+        providerUserId=#'{providerUserId}'
+    </sql>
+    <sql id="keyId_item">
+        providerUserId=#'{item.providerUserId'}
+    </sql>
+    <sql id="putValue">
+        <if test="userId != null" >
+            #'{userId,jdbcType=VARCHAR'},
+        </if>
+        <if test="providerId != null" >
+            #'{providerId,jdbcType=VARCHAR'},
+        </if>
+        <if test="providerUserId != null" >
+            #'{providerUserId,jdbcType=VARCHAR'},
+        </if>
+        <if test="rank != null" >
+            #'{rank,jdbcType=INTEGER'},
+        </if>
+        <if test="displayName != null" >
+            #'{displayName,jdbcType=VARCHAR'},
+        </if>
+        <if test="profileUrl != null" >
+            #'{profileUrl,jdbcType=VARCHAR'},
+        </if>
+        <if test="imageUrl != null" >
+            #'{imageUrl,jdbcType=VARCHAR'},
+        </if>
+        <if test="accessToken != null" >
+            #'{accessToken,jdbcType=VARCHAR'},
+        </if>
+        <if test="secret != null" >
+            #'{secret,jdbcType=VARCHAR'},
+        </if>
+        <if test="refreshToken != null" >
+            #'{refreshToken,jdbcType=VARCHAR'},
+        </if>
+        <if test="expireTime != null" >
+            #'{expireTime,jdbcType=INTEGER'},
+        </if>
+    </sql>
+    <sql id="conditionKey">
+         <if test="userId != null" >
+            userId,
+         </if>
+         <if test="providerId != null" >
+            providerId,
+         </if>
+         <if test="providerUserId != null" >
+            providerUserId,
+         </if>
+         <if test="rank != null" >
+            rank,
+         </if>
+         <if test="displayName != null" >
+            displayName,
+         </if>
+         <if test="profileUrl != null" >
+            profileUrl,
+         </if>
+         <if test="imageUrl != null" >
+            imageUrl,
+         </if>
+         <if test="accessToken != null" >
+            accessToken,
+         </if>
+         <if test="secret != null" >
+            secret,
+         </if>
+         <if test="refreshToken != null" >
+            refreshToken,
+         </if>
+         <if test="expireTime != null" >
+            expireTime,
+         </if>
+    </sql>
+    <sql id="condition_value_add">
+        <if test="userId == null" >
+            ((SELECT REPLACE(UUID(), '-', '') AS userId),
+        </if>
+        <if test="userId != null" >
+            #'{userId'},
+        </if>
+        <if test="providerId == null" >
+            ((SELECT REPLACE(UUID(), '-', '') AS providerId),
+        </if>
+        <if test="providerId != null" >
+            #'{providerId'},
+        </if>
+        <if test="providerUserId == null" >
+            ((SELECT REPLACE(UUID(), '-', '') AS providerUserId),
+        </if>
+        <if test="providerUserId != null" >
+            #'{providerUserId'},
+        </if>
+        <if test="rank != null" >
+            #'{rank'},
+        </if>
+        <if test="displayName != null" >
+            #'{displayName'},
+        </if>
+        <if test="profileUrl != null" >
+            #'{profileUrl'},
+        </if>
+        <if test="imageUrl != null" >
+            #'{imageUrl'},
+        </if>
+        <if test="accessToken != null" >
+            #'{accessToken'},
+        </if>
+        <if test="secret != null" >
+            #'{secret'},
+        </if>
+        <if test="refreshToken != null" >
+            #'{refreshToken'},
+        </if>
+        <if test="expireTime != null" >
+            #'{expireTime'},
+        </if>
+    </sql>
+    <sql id="condition_value_add_item">
+        <if test="item.userId == null" >
+            ((SELECT REPLACE(UUID(), '-', '') AS userId),
+        </if>
+        <if test="item.userId != null" >
+            #'{item.userId'},
+        </if>
+        <if test="item.providerId == null" >
+            ((SELECT REPLACE(UUID(), '-', '') AS providerId),
+        </if>
+        <if test="item.providerId != null" >
+            #'{item.providerId'},
+        </if>
+        <if test="item.providerUserId == null" >
+            ((SELECT REPLACE(UUID(), '-', '') AS providerUserId),
+        </if>
+        <if test="item.providerUserId != null" >
+            #'{item.providerUserId'},
+        </if>
+        <if test="item.rank != null" >
+            #'{item.rank'},
+        </if>
+        <if test="item.displayName != null" >
+            #'{item.displayName'},
+        </if>
+        <if test="item.profileUrl != null" >
+            #'{item.profileUrl'},
+        </if>
+        <if test="item.imageUrl != null" >
+            #'{item.imageUrl'},
+        </if>
+        <if test="item.accessToken != null" >
+            #'{item.accessToken'},
+        </if>
+        <if test="item.secret != null" >
+            #'{item.secret'},
+        </if>
+        <if test="item.refreshToken != null" >
+            #'{item.refreshToken'},
+        </if>
+        <if test="item.expireTime != null" >
+            #'{item.expireTime'},
+        </if>
+    </sql>
+    <sql id="condition_value_update">
+         <if test="userId != null" >
+             userId=#'{userId,jdbcType=VARCHAR'},
+         </if>
+         <if test="providerId != null" >
+             providerId=#'{providerId,jdbcType=VARCHAR'},
+         </if>
+         <if test="providerUserId != null" >
+             providerUserId=#'{providerUserId,jdbcType=VARCHAR'},
+         </if>
+         <if test="rank != null" >
+             rank=#'{rank,jdbcType=INTEGER'},
+         </if>
+         <if test="displayName != null" >
+             displayName=#'{displayName,jdbcType=VARCHAR'},
+         </if>
+         <if test="profileUrl != null" >
+             profileUrl=#'{profileUrl,jdbcType=VARCHAR'},
+         </if>
+         <if test="imageUrl != null" >
+             imageUrl=#'{imageUrl,jdbcType=VARCHAR'},
+         </if>
+         <if test="accessToken != null" >
+             accessToken=#'{accessToken,jdbcType=VARCHAR'},
+         </if>
+         <if test="secret != null" >
+             secret=#'{secret,jdbcType=VARCHAR'},
+         </if>
+         <if test="refreshToken != null" >
+             refreshToken=#'{refreshToken,jdbcType=VARCHAR'},
+         </if>
+         <if test="expireTime != null" >
+             expireTime=#'{expireTime,jdbcType=INTEGER'},
+         </if>
+    </sql>
+    <sql id="condition_value_update_item">
+         <if test="item.userId != null" >
+            userId=#'{item.userId,jdbcType=VARCHAR'},
+         </if>
+         <if test="item.providerId != null" >
+            providerId=#'{item.providerId,jdbcType=VARCHAR'},
+         </if>
+         <if test="item.providerUserId != null" >
+            providerUserId=#'{item.providerUserId,jdbcType=VARCHAR'},
+         </if>
+         <if test="item.rank != null" >
+            rank=#'{item.rank,jdbcType=INTEGER'},
+         </if>
+         <if test="item.displayName != null" >
+            displayName=#'{item.displayName,jdbcType=VARCHAR'},
+         </if>
+         <if test="item.profileUrl != null" >
+            profileUrl=#'{item.profileUrl,jdbcType=VARCHAR'},
+         </if>
+         <if test="item.imageUrl != null" >
+            imageUrl=#'{item.imageUrl,jdbcType=VARCHAR'},
+         </if>
+         <if test="item.accessToken != null" >
+            accessToken=#'{item.accessToken,jdbcType=VARCHAR'},
+         </if>
+         <if test="item.secret != null" >
+            secret=#'{item.secret,jdbcType=VARCHAR'},
+         </if>
+         <if test="item.refreshToken != null" >
+            refreshToken=#'{item.refreshToken,jdbcType=VARCHAR'},
+         </if>
+         <if test="item.expireTime != null" >
+            expireTime=#'{item.expireTime,jdbcType=INTEGER'},
+         </if>
+    </sql>
+    <sql id="order">
+        ORDER BY
+    'order' 'sort'
+    </sql>
+    <sql id="group">
+        GROUP BY 'group'
+    </sql>
+
+    <select id="findPageBy" resultMap="BaseResultMap" parameterType="userconnection">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="table"/>
+        <where>
+            <include refid="condition"/>
+        </where>
+        <if test="group != null" >
+            <include refid="group"/>
+        </if>
+        <if test="order != null" >
+            <include refid="order"/>
+        </if>
+    </select>
+    <select id="findById"  resultMap="BaseResultMap" parameterType="string" >
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="table"/>
+        <where>
+            <include refid="keyId"/>
+        </where>
+    </select>
+
+    <select id="findListBy"  resultMap="BaseResultMap" parameterType="userconnection" >
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="table"/>
+        <where>
+            <include refid="condition"/>
+        </where>
+    </select>
+
+    <select id="findByList"  resultMap="BaseResultMap" parameterType="list" >
+        <foreach  item="item" collection="list" separator=";" open="(" close=")">
+            SELECT
+            <include refid="Base_Column_List"/>
+            FROM
+            <include refid="table"/>
+            <where>
+                <include refid="condition_item"/>
+            </where>
+        </foreach>
+    </select>
+    <insert id="save" parameterType="userconnection" >
+        insert into <include refid="table"/>
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <include refid="conditionKey"/>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <include refid="condition_value_add"/>
+        </trim>
+    </insert>
+    <insert id="saveList" parameterType="list" >
+        insert into <include refid="table"/>
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <include refid="conditionKey"/>
+        </trim>
+        <foreach collection="list" index="index" item="item" separator=",">
+            ( <include refid="condition_value_add_item"/>)
+        </foreach>
+    </insert>
+    <update id="update" parameterType="userconnection">
+        update <include refid="table"/>
+        <set >
+            <include refid="condition_value_update"/>
+        </set>
+        <where>
+            <include refid="keyId"/>
+        </where>
+    </update>
+    <update id="updateList" parameterType="list">
+        <foreach  item="item" collection="list" separator=";" open="(" close=")">
+            update <include refid="table"/>
+            <set >
+                <include refid="condition_value_update_item"/>
+            </set>
+            <where>
+                <include refid="keyId_item"/>
+            </where>
+        </foreach>
+    </update>
+    <delete id="deleteById" parameterType="string" >
+        delete from
+        <include refid="table"/>
+        <where>
+            <include refid="keyId"/>
+        </where>
+    </delete>
+</mapper>
+
+

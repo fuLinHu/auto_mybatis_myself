@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.framk.autocode.dao.StudentMapper" >
+    <resultMap id="BaseResultMap" type="com.framk.autocode.entity.Student" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+       id,name
+    </sql>
+    <sql id="table">
+        student
+    </sql>
+    <sql id="condition_item">
+         <if test="item.id != null" >
+            id=#'{item.id,jdbcType=INTEGER'}
+         </if>
+         <if test="item.name != null" >
+            name=#'{item.name,jdbcType=VARCHAR'}
+         </if>
+    </sql>
+    <sql id="condition">
+         <if test="id != null" >
+            id=#'{id,jdbcType=INTEGER'}
+         </if>
+         <if test="name != null" >
+            name=#'{name,jdbcType=VARCHAR'}
+         </if>
+    </sql>
+
+    <sql id="keyId">
+        id=#'{id}'
+    </sql>
+    <sql id="keyId_item">
+        id=#'{item.id'}
+    </sql>
+    <sql id="putValue">
+        <if test="id != null" >
+            #'{id,jdbcType=INTEGER'},
+        </if>
+        <if test="name != null" >
+            #'{name,jdbcType=VARCHAR'},
+        </if>
+    </sql>
+    <sql id="conditionKey">
+         <if test="id != null" >
+            id,
+         </if>
+         <if test="name != null" >
+            name,
+         </if>
+    </sql>
+    <sql id="condition_value_add">
+        <if test="id == null" >
+            ((SELECT REPLACE(UUID(), '-', '') AS id),
+        </if>
+        <if test="id != null" >
+            #'{id'},
+        </if>
+        <if test="name != null" >
+            #'{name'},
+        </if>
+    </sql>
+    <sql id="condition_value_add_item">
+        <if test="item.id == null" >
+            ((SELECT REPLACE(UUID(), '-', '') AS id),
+        </if>
+        <if test="item.id != null" >
+            #'{item.id'},
+        </if>
+        <if test="item.name != null" >
+            #'{item.name'},
+        </if>
+    </sql>
+    <sql id="condition_value_update">
+         <if test="id != null" >
+             id=#'{id,jdbcType=INTEGER'},
+         </if>
+         <if test="name != null" >
+             name=#'{name,jdbcType=VARCHAR'},
+         </if>
+    </sql>
+    <sql id="condition_value_update_item">
+         <if test="item.id != null" >
+            id=#'{item.id,jdbcType=INTEGER'},
+         </if>
+         <if test="item.name != null" >
+            name=#'{item.name,jdbcType=VARCHAR'},
+         </if>
+    </sql>
+    <sql id="order">
+        ORDER BY
+    'order' 'sort'
+    </sql>
+    <sql id="group">
+        GROUP BY 'group'
+    </sql>
+
+    <select id="findPageBy" resultMap="BaseResultMap" parameterType="student">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="table"/>
+        <where>
+            <include refid="condition"/>
+        </where>
+        <if test="group != null" >
+            <include refid="group"/>
+        </if>
+        <if test="order != null" >
+            <include refid="order"/>
+        </if>
+    </select>
+    <select id="findById"  resultMap="BaseResultMap" parameterType="string" >
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="table"/>
+        <where>
+            <include refid="keyId"/>
+        </where>
+    </select>
+
+    <select id="findListBy"  resultMap="BaseResultMap" parameterType="student" >
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="table"/>
+        <where>
+            <include refid="condition"/>
+        </where>
+    </select>
+
+    <select id="findByList"  resultMap="BaseResultMap" parameterType="list" >
+        <foreach  item="item" collection="list" separator=";" open="(" close=")">
+            SELECT
+            <include refid="Base_Column_List"/>
+            FROM
+            <include refid="table"/>
+            <where>
+                <include refid="condition_item"/>
+            </where>
+        </foreach>
+    </select>
+    <insert id="save" parameterType="student" >
+        insert into <include refid="table"/>
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <include refid="conditionKey"/>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <include refid="condition_value_add"/>
+        </trim>
+    </insert>
+    <insert id="saveList" parameterType="list" >
+        insert into <include refid="table"/>
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <include refid="conditionKey"/>
+        </trim>
+        <foreach collection="list" index="index" item="item" separator=",">
+            ( <include refid="condition_value_add_item"/>)
+        </foreach>
+    </insert>
+    <update id="update" parameterType="student">
+        update <include refid="table"/>
+        <set >
+            <include refid="condition_value_update"/>
+        </set>
+        <where>
+            <include refid="keyId"/>
+        </where>
+    </update>
+    <update id="updateList" parameterType="list">
+        <foreach  item="item" collection="list" separator=";" open="(" close=")">
+            update <include refid="table"/>
+            <set >
+                <include refid="condition_value_update_item"/>
+            </set>
+            <where>
+                <include refid="keyId_item"/>
+            </where>
+        </foreach>
+    </update>
+    <delete id="deleteById" parameterType="string" >
+        delete from
+        <include refid="table"/>
+        <where>
+            <include refid="keyId"/>
+        </where>
+    </delete>
+</mapper>
+
+
