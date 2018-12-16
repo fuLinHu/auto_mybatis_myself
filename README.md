@@ -1,0 +1,1 @@
+# auto_mybatis_myself
