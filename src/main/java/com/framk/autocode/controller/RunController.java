@@ -7,13 +7,20 @@ import com.framk.autocode.publicmoduel.Entity.Entity;
 import com.framk.autocode.publicmoduel.Entity.ResultMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
 
-@RestController
+@Controller
 public class RunController {
+
+
+
+
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -24,7 +31,15 @@ public class RunController {
     private String entity="com.mytest.entity";
     private String dbname="test";
 
+    @RequestMapping("/index")
+    public String toMain(){
+        return "/thymeleaf/main.html";
+    }
+
+
+
     @RequestMapping(value = "/run")
+    @ResponseBody
     public ResultMessage runMain(){
         String sql="select table_name from information_schema.tables where table_schema='test' and table_type='base table'";
         //格式如下

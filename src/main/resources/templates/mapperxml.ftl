@@ -55,9 +55,13 @@
     <sql id="conditionKey">
          <#if list??>
              <#list list as key>
-         <if test="${key.javaName} != null" >
-            ${key.column_name},
-         </if>
+                 <#if key.ifKey==true >
+         ${key.column_name},
+                 <#else>
+             <if test="${key.javaName} != null" >
+          ${key.column_name},
+             </if>
+                 </#if>
              </#list>
          </#if>
     </sql>
@@ -66,7 +70,7 @@
              <#list list as key>
                  <#if key.ifKey==true >
         <if test="${key.javaName} == null" >
-            ((SELECT REPLACE(UUID(), '-', '') AS ${key.column_name}),
+            (SELECT REPLACE(UUID(), '-', '')) ,
         </if>
         <if test="${key.javaName} != null" >
             #'{${key.javaName}'},
