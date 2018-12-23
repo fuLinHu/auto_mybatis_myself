@@ -33,7 +33,7 @@ public class RunController {
 
     @RequestMapping("/index")
     public String toMain(){
-        return "/thymeleaf/main.html";
+        return "/main.html";
     }
 
 
