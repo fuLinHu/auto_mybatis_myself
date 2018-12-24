@@ -21,7 +21,7 @@ public class RunController {
 
 
 
-    @Autowired
+    @Autowired(required = false)
     private JdbcTemplate jdbcTemplate;
 
     private String dao="com.mytest.dao";
@@ -31,10 +31,6 @@ public class RunController {
     private String entity="com.mytest.entity";
     private String dbname="test";
 
-    @RequestMapping("/index")
-    public String toMain(){
-        return "/main.html";
-    }
 
 
 

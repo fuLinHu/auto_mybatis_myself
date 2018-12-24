@@ -12,7 +12,7 @@ import java.io.Serializable;
 
 @Service
 public class UserconnectionServiceImpl extends BaseServiceImpl<Userconnection> implements UserconnectionService {
-    @Autowired
+    @Autowired(required = false)
     private UserconnectionMapper mapper;
     @Override
     protected BaseMapper<Userconnection, Serializable> getDao() {

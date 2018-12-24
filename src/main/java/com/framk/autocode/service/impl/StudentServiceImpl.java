@@ -12,7 +12,7 @@ import java.io.Serializable;
 
 @Service
 public class StudentServiceImpl extends BaseServiceImpl<Student> implements StudentService {
-    @Autowired
+    @Autowired(required = false)
     private StudentMapper mapper;
     @Override
     protected BaseMapper<Student, Serializable> getDao() {

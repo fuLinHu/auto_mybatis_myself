@@ -12,7 +12,7 @@ import java.io.Serializable;
 
 @Service
 public class TestBirthdayServiceImpl extends BaseServiceImpl<TestBirthday> implements TestBirthdayService {
-    @Autowired
+    @Autowired(required = false)
     private TestBirthdayMapper mapper;
     @Override
     protected BaseMapper<TestBirthday, Serializable> getDao() {
