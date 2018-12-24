@@ -22,7 +22,7 @@ public class RunMain {
         dataMap.put("userName", "userName");
         dataMap.put("password","password");
 
-        FreemarkerUtil.runTemplate("entity.ftl",Constant.entity_package,"User.java" , dataMap);
+        FreemarkerUtil.runTemplate("entity.ftl",Constant.entity_package,"User.java" ,"F:\\autotest", dataMap);
 
 
 

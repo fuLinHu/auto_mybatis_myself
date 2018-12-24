@@ -1,6 +1,6 @@
 package ${package};
 
-public class ${className} {
+public class ${className} extends BaseEntity{
 
 <#if list??>
     <#list list as key>

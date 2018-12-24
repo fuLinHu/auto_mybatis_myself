@@ -34,7 +34,7 @@ public class RunController {
 
 
 
-    @RequestMapping(value = "/run")
+    @RequestMapping(value = "/run1")
     @ResponseBody
     public ResultMessage runMain(){
         String sql="select table_name from information_schema.tables where table_schema='test' and table_type='base table'";
@@ -104,11 +104,11 @@ public class RunController {
                 ma.put("table", sourceTableName);
                 ma.put("aliases_table", aliases_table);
 
-                FreemarkerUtil.runTemplate("entity.ftl",Constant.entity_package,tableName+".java" , ma);
-                FreemarkerUtil.runTemplate("dao.ftl",Constant.dao_package,tableName+"Mapper.java" , ma);
-                FreemarkerUtil.runTemplate("service.ftl",Constant.service_package,tableName+"Service.java" , ma);
-                FreemarkerUtil.runTemplate("serviceImpl.ftl",Constant.serviceimpl_package,tableName+"ServiceImpl.java" , ma);
-                FreemarkerUtil.runTemplate("mapperxml.ftl","",tableName+"Mapper.xml" , ma);
+                FreemarkerUtil.runTemplate("entity.ftl",Constant.entity_package,tableName+".java" ,"F:/autotest",ma);
+                FreemarkerUtil.runTemplate("dao.ftl",Constant.dao_package,tableName+"Mapper.java" ,"F:/autotest", ma);
+                FreemarkerUtil.runTemplate("service.ftl",Constant.service_package,tableName+"Service.java" ,"F:/autotest", ma);
+                FreemarkerUtil.runTemplate("serviceImpl.ftl",Constant.serviceimpl_package,tableName+"ServiceImpl.java" ,"F:/autotest", ma);
+                FreemarkerUtil.runTemplate("mapperxml.ftl","",tableName+"Mapper.xml" ,"F:/autotest", ma);
             }
         }
         //数据库中test 中test_birthday表的结构

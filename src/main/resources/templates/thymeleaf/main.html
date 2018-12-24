@@ -31,6 +31,36 @@
      </table>
      <input id="test" type="button" value="测试">
  </form>
+<hr />
+ <form id="codeForm" action="/testDb">
+     <table>
+         <tr>
+             <td>entity层路径：</td>
+             <td><input type="text" class="mvcpath entity"  name="entity" placeholder="com.autocode.entity" /></td>
+         </tr>
+         <tr>
+             <td>dao层路径：</td>
+             <td><input type="text"   class="mvcpath dao" name="dao" placeholder="com.autocode.dao" /></td>
+         </tr>
+         <tr>
+             <td>service层路径：</td>
+             <td><input type="text" class="mvcpath service" name="service" placeholder="com.autocode.service" /></td>
+         </tr>
+         <tr>
+             <td>impl层路径：</td>
+             <td><input type="text"  class="mvcpath impl" name="impl" placeholder="com.autocode.service.impl" /></td>
+         </tr>
+         <tr>
+             <td>controller层路径：</td>
+             <td><input type="text"  class="mvcpath controller" name="controller" placeholder="com.autocode.controller" /></td>
+         </tr>
+         <tr>
+             <td>代码生成路径：</td>
+             <td><input type="text"   name="path" placeholder="F:\auto" /></td>
+         </tr>
+     </table>
+     <input id="autocode" type="button" value="生成代码">
+ </form>
 </body>
 </html>
 <script type="text/javascript">
@@ -46,16 +76,55 @@
 			type : 'POST',
 			data: formData,
 			cache: false,
-			contentType: false,
-			processData: false,
 			dataType:"json",
 			success : function(data) {
-
+                var success=data.success;
+                if(success){
+                    alert("数据库连接正常。");
+                }else{
+                    alert(data.message);
+                }
 			},
 			error:function(data){
 
 			}
 		});
-    alert("rrr");
  })
+ $("#autocode").on("click",function(){
+     var formData = {};
+     var t = $('#codeForm').serializeArray();
+     $.each(t, function() {
+         formData[this.name] = this.value;
+     });
+     $.ajax({
+         url : "/run" ,
+         type : 'POST',
+         data: formData,
+         cache: false,
+         dataType:"json",
+         success : function(data) {
+             var success=data.success;
+             if(success){
+                 alert("代码生成成功。");
+             }else{
+                 alert(data.message);
+             }
+         },
+         error:function(data){
+
+         }
+     });
+ });
+ $(".entity").on("change",function(){
+     var $THIS = $(this);
+     var entity = $THIS.val();
+     var lastIndexOf = entity.lastIndexOf(".");
+     var s = entity.substring(0,lastIndexOf);
+     $(".dao").val(s+".dao");
+     $(".service").val(s+".service");
+     $(".impl").val(s+".service.impl");
+     $(".controller").val(s+".controller");
+ });
+
+
 </script>

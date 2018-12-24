@@ -1,10 +1,9 @@
-package com.framk.autocode.service.impl;
 
-import com.framk.autocode.dao.BaseMapper;
-import com.framk.autocode.entity.BaseEntity;
-import com.framk.autocode.service.BaseService;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+package ${package};
+
+import ${daoPackage}.BaseMapper;
+import ${servicePackage}.BaseService;
+import ${entityPackage}.BaseEntity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -63,3 +62,11 @@ public abstract  class BaseServiceImpl<T extends BaseEntity> implements BaseServ
         getDao().deleteById(id);
     }
 }
+
+
+
+
+
+
+
+

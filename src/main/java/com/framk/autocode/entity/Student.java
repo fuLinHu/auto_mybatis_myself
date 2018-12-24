@@ -1,6 +1,6 @@
 package com.framk.autocode.entity;
 
-public class Student {
+public class Student extends BaseEntity{
 
     private Integer id;
     private String name;

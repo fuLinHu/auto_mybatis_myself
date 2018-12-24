@@ -1,8 +1,11 @@
 package com.framk.autocode.dao;
 
+import com.framk.autocode.entity.Test;
+
 import java.util.List;
 
 public interface BaseMapper<T,Serializable> {
+    public List<T> findPageBy(T t);
     public void save(T t);
     public void update(T t);
     public void saveList(List<T> t);

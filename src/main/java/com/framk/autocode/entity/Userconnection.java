@@ -1,6 +1,6 @@
 package com.framk.autocode.entity;
 
-public class Userconnection {
+public class Userconnection extends BaseEntity {
 
     private String userId;
     private String providerId;

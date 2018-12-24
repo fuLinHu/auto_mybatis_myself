@@ -1,7 +1,4 @@
-package com.framk.autocode.service;
-
-import com.framk.autocode.entity.Test;
-import com.github.pagehelper.PageInfo;
+package ${package};
 
 import java.util.List;
 
@@ -16,3 +13,12 @@ public interface BaseService<T, Serializable> {
     public List<T> findByList(List<T> t);
     public void deleteById(String id);
 }
+
+
+
+
+
+
+
+
+

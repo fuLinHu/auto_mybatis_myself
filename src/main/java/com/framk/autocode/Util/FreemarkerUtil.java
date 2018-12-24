@@ -18,18 +18,20 @@ public class FreemarkerUtil {
      * @param templateName 模板名称这个是提前定义好的
      * @param packageName 包名称
      * @param className 类的名称
+     * @param path 项目生成的路径
      * @param dataMap 需要往模板中填充的数据
      */
-    public static void runTemplate(String templateName,String packageName,String className,Map<String,Object> dataMap){
+    public static void runTemplate(String templateName,String packageName,String className,String path,Map<String,Object> dataMap){
         dataMap.put("package", packageName);
         String rootPath="";
+        rootPath=path;
         //F:\代码\aw_weixin\02_开发代码\autocode\src\main\resources\mapper
         try {
-            String path = FreemarkerUtil.class.getResource("/").toURI().getPath();
+            /*String path = FreemarkerUtil.class.getResource("/").toURI().getPath();
             String[] split = path.split("/target/classes/");
             rootPath=split[0];
-            System.out.println(split[0]+"--------------------------");
-        } catch (URISyntaxException e) {
+            System.out.println(split[0]+"--------------------------");*/
+        } catch (Exception e) {
             e.printStackTrace();
         }
         String[] split = packageName.split("\\.");
