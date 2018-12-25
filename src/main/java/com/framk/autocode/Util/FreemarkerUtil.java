@@ -38,6 +38,8 @@ public class FreemarkerUtil {
         String pathName="";
         if("mapperxml.ftl".equals(templateName)){
             pathName=MAPPERXML_PATH;
+        }else if("application.ftl".equals(templateName)||"pom.ftl".equals(templateName)){
+            pathName="\\"+TEMPLATE_PATH;
         }else{
             pathName=CLASS_PATH;
         }
@@ -66,6 +68,7 @@ public class FreemarkerUtil {
             System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^"+className+" 文件创建成功 !");
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         } finally {
             try {
                 if (null != out) {

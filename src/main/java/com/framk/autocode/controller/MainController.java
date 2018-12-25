@@ -144,6 +144,8 @@ public class MainController {
             FreemarkerUtil.runTemplate("baseDao.ftl",autoCodeParam.getDao(),"BaseMapper.java" , path,ma);
             FreemarkerUtil.runTemplate("baseService.ftl",autoCodeParam.getService(),"BaseService.java" , path, ma);
             FreemarkerUtil.runTemplate("baseServiceImpl.ftl",autoCodeParam.getImpl(),"BaseServiceImpl.java" , path, ma);
+            FreemarkerUtil.runTemplate("application.ftl","","application.yml" , path, ma);
+            FreemarkerUtil.runTemplate("pom.ftl","","pom.xml" , path, ma);
         }catch (Exception e){
             resultMessage.setStatus(Constant.STATUS_500);
             resultMessage.setSuccess(false);
