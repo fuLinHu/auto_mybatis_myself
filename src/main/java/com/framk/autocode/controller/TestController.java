@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/test")
 public class TestController {
 
-    @Autowired
+  /*  @Autowired
     private TestService testService;
 
     @RequestMapping("/pagetest")
@@ -98,9 +98,9 @@ public class TestController {
     }
 
 
-    /*@RequestMapping("/save")
-    @ResponseBody*/
-    /*public ResultMessage save(Test test){
+    *//*@RequestMapping("/save")
+    @ResponseBody*//*
+    *//*public ResultMessage save(Test test){
         ResultMessage rm = new ResultMessage();
         try{
             testService.save(test);
@@ -110,8 +110,8 @@ public class TestController {
             e.printStackTrace();
         }
         return rm;
-    }*/
-
+    }*//*
+*/
 
 
 }

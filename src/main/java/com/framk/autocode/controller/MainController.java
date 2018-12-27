@@ -24,7 +24,7 @@ public class MainController {
 
     private String  dbName;
 
-    @RequestMapping("/index")
+    @RequestMapping("/index1")
     public String toMain(){
         return "/main.html";
     }

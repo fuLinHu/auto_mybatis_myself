@@ -10,8 +10,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class,DruidDataSourceAutoConfigure.class})
-//@MapperScan("com.framk.autocode.dao")
+//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class,DruidDataSourceAutoConfigure.class})
+@MapperScan("com.framk.autocode.dao")
+@SpringBootApplication
 public class AutocodeApplication {
 
     public static void main(String[] args) {
