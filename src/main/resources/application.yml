@@ -25,6 +25,18 @@ logging:
     root: WARN
     org.springframework.web: INFO
     org.springframework.security: INFO
+    com.framk.autocode.dao: DEBUG
+mybatis:
+  mapper-locations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.framk.autocode.entity  # 注意：对应实体类的路径
+#pagehelper
+pagehelper:
+    helperDialect: mysql
+    reasonable: true #大于最大也显示最后一页  小于最小也显示第一页
+    supportMethodsArguments: true
+    params: count=countSql
+    returnPageInfo: check
+
 
 
 

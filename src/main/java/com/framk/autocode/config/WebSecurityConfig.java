@@ -23,7 +23,8 @@ public class WebSecurityConfig extends   WebSecurityConfigurerAdapter  {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").permitAll()
+                .antMatchers("/login").permitAll()
+                .anyRequest().authenticated()//其他所有路径都需要权限校验
                 .antMatchers("/user/**").hasRole("USER")
                 .and()
                 .formLogin().loginPage("/login").defaultSuccessUrl("/user")
@@ -36,14 +37,14 @@ public class WebSecurityConfig extends   WebSecurityConfigurerAdapter  {
     /**
      * 在内存中创建一个名为 "user" 的用户，密码为 "pwd"，拥有 "USER" 权限
      */
-    @Bean
+    /*@Bean
     @Override
     protected UserDetailsService userDetailsService() {
         User.UserBuilder users = User.withDefaultPasswordEncoder();
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(users.username("user").password("pwd").roles("USER").build());
         return manager;
-    }
+    }*/
 
 
 
