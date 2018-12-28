@@ -2,7 +2,7 @@ package com.framk.autocode.entity;
 
 public class User extends BaseEntity{
 
-    private Integer id;
+    private String id;
     private String userUuid;
     private String username;
     private String password;
@@ -12,10 +12,12 @@ public class User extends BaseEntity{
     private String image;
     private String lastIp;
     private String lastTime;
-    public Integer getId() {
+
+    public String getId() {
         return id;
     }
-    public void setId(Integer id) {
+
+    public void setId(String id) {
         this.id = id;
     }
 

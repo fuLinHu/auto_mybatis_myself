@@ -70,7 +70,7 @@
              <#list list as key>
                  <#if key.ifKey==true >
         <if test="${key.javaName} == null" >
-            (SELECT REPLACE(UUID(), '-', '')) ,
+            (SELECT REPLACE(UUID(),"-","")) ,
         </if>
         <if test="${key.javaName} != null" >
             #'{${key.javaName}'},
@@ -88,7 +88,7 @@
              <#list list as key>
                  <#if key.ifKey==true >
         <if test="item.${key.javaName} == null" >
-            ((SELECT REPLACE(UUID(), '-', '') AS ${key.column_name}),
+            ((SELECT REPLACE(UUID(),"-","") AS ${key.column_name}),
         </if>
         <if test="item.${key.javaName} != null" >
             #'{item.${key.javaName}'},
