@@ -1,20 +1,30 @@
 package com.framk.autocode.controller;
 
 
-import com.framk.autocode.entity.Test;
-import com.framk.autocode.publicmoduel.Entity.Constant;
-import com.framk.autocode.publicmoduel.Entity.Page;
-import com.framk.autocode.publicmoduel.Entity.ResultMessage;
-import com.framk.autocode.service.TestService;
-import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/test")
 public class TestController {
+
+    @GetMapping("/product/{id}")
+    public String getProduct(@PathVariable String id) {
+        //for debug
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return "product id : " + id;
+    }
+
+    @GetMapping("/order/{id}")
+    public String getOrder(@PathVariable String id) {
+        //for debug
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return "order id : " + id;
+    }
 
   /*  @Autowired
     private TestService testService;
