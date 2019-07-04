@@ -78,7 +78,7 @@ public class MainController {
                     String sourceTableName = (String) item.get(ite);
                     String tableName = AutoJavaUtil.toJavaEntity(sourceTableName);
                     String aliases_table = AutoJavaUtil.toJavaEntityProp(sourceTableName);
-                    String sql_table_struck="select column_name,COLUMN_TYPE,COLUMN_KEY from information_schema.columns where table_schema='test' and table_name='"+sourceTableName+"'";
+                    String sql_table_struck="select column_name,COLUMN_TYPE,COLUMN_KEY from information_schema.columns where table_schema='"+dbName+"' and table_name='"+sourceTableName+"'";
                     List<Map<String, Object>> maps1 = jdbcTemplate.queryForList(sql_table_struck);
                     List<Entity>  list = new ArrayList<>();
                     String COLUMN_LIST ="";
